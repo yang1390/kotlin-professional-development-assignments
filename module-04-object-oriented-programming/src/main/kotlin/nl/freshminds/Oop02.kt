@@ -12,3 +12,15 @@ package nl.freshminds
  * 4. Create a main function, construct a couple of [Person] objects via the secondary constructor and print their
  * [fullName].
  */
+
+fun main() {
+    listOf(Person("f", "l"),
+        Person("f1", "l1"),
+        Person("f2", "l2"),
+        Person("f3", "l3")).forEach { person -> println(person.fullName) }
+}
+
+class Person private constructor(val fullName: String) {
+
+    constructor(firstName: String, lastName: String) : this("$firstName $lastName")
+}

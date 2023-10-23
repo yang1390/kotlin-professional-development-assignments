@@ -17,3 +17,14 @@ package nl.freshminds
  * 3. Add a main method and create a couple of Movie instances. Use the copy function to create
  * variations of these instances.
  */
+
+fun main() {
+
+    val original = Actor("O", "G")
+    listOf(original, original.copy(name= "G"), original.copy(role = "O")).forEach { println("name: ${it.name} role: ${it.role} ") }
+}
+
+data class Movie(val title: String, val director: String, val year: Int, val genres: String, val actors: List<Actor>)
+
+data class Actor(val name: String, val role: String)
+

@@ -15,3 +15,17 @@ import java.time.LocalDate
  * 4. Create an extension function for the [String] class called [capitalizeWords] that capitalizes the first
  * letter of each word in a given string. For example, "hello world" should be transformed into "Hello World".
  */
+
+
+fun LocalDate.isBetween(startDate: LocalDate, endDate: LocalDate) : Boolean =
+    this.isAfter(startDate) && this.isBefore(endDate)
+
+
+fun List<Int>.squareNumbers() = this.map { myInt -> myInt * myInt }
+
+
+fun String.isPalindrome() : Boolean = this == this.reversed()
+
+fun String.capitalizeWords() : String =
+    this.split(" ").joinToString(" ") { word -> word.replaceFirstChar { char -> char.uppercaseChar() } }
+

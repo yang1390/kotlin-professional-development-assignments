@@ -17,4 +17,11 @@ data class Discount(
     val endDate: LocalDate,
     val code: String,
     val percentage: Int
-)
+) {
+    init {
+        require(title.isNotBlank())
+        require(startDate.isBefore(endDate))
+        require(code.length == 10)
+        require(percentage in 1..99)
+    }
+}

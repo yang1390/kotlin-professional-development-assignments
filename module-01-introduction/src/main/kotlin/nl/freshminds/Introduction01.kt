@@ -9,3 +9,10 @@ package nl.freshminds
  *
  * D: Are you able to write the `sumTimesFive` function as a single expression function?
  */
+
+fun main() {
+    println("Fresh Minds!")
+    println(sumTimesFive(3, 5))
+}
+
+fun sumTimesFive(a: Int, b:Int) : Int = (a + b) * 5

@@ -28,3 +28,42 @@ package nl.freshminds
  *
  * 8. Iterate over the elements in the list and print the name, age, species, and average lifespan.
  */
+
+fun main() {
+    val animalList : List<Animal> = listOf(
+        Mammal("Lion", "Simba", 1, "Lion"),
+        Mammal("Lion2", "BasicLion", 1, "Lion2"),
+        Bird("Swan", true, "some", 2, "Vogel"),
+        Animal("basic bitch", 3, "steen")
+    )
+
+    animalList.forEach { animal: Animal -> println("Name: ${animal.name} age: ${animal.age} species: ${animal.species} avgLifeSpan: ${animal.calculateAverageLifeSpan()}") }
+}
+
+open class Animal(val name: String, val age: Int, val species: String) {
+    open fun calculateAverageLifeSpan() : Int = 10
+}
+
+class Mammal(val type: String, name: String, age: Int, species: String) : Animal(name, age, species) {
+    override fun calculateAverageLifeSpan() : Int {
+       return  when(type) {
+            "Elephant" -> 70
+            "Lion" -> 15
+            "Gorilla" ->35
+            else -> super.calculateAverageLifeSpan()
+        }
+    }
+}
+
+class Bird(val type: String,val  canFly: Boolean, name: String, age: Int, species: String) : Animal(name, age, species) {
+
+    override fun calculateAverageLifeSpan() : Int {
+        return  when(type) {
+            "Eagle" -> 20
+            "Swan" -> 25
+            "Penguin" ->15
+            else -> super.calculateAverageLifeSpan()
+        }
+    }
+}
+

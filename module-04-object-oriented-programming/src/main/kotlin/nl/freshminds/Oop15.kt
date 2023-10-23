@@ -12,6 +12,36 @@ package nl.freshminds
  * the functions defined in the [Mechanic] interface.
  */
 
+fun main() {
+    val sensiorMechanic = SensiorMechanic(JuniorMechanic())
+    sensiorMechanic.changeTires()
+    sensiorMechanic.fixBoardComputer()
+    sensiorMechanic.cleanCar()
+    sensiorMechanic.swapEngine()
+}
+
+class SensiorMechanic(val delegate: JuniorMechanic) : Mechanic by delegate {
+
+}
+
+class JuniorMechanic() : Mechanic {
+    override fun changeTires() {
+        println("Junior changeTires")
+    }
+
+    override fun cleanCar() {
+        println("Junior cleanCar")
+    }
+
+    override fun swapEngine() {
+        println("Junior swapEngine")
+    }
+
+    override fun fixBoardComputer() {
+        println("Junior fixBoardComputer")
+    }
+}
+
 interface Mechanic {
     fun changeTires()
 

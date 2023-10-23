@@ -6,5 +6,8 @@ package nl.freshminds
  * Return the name of the folder if [input] is a [Folder], return [defaultName] otherwise.
  */
 fun castToFolderAndGetNameOrDefault(input: Any?, defaultName: String): String {
-    TODO()
+    return when (input) {
+        is Folder -> input.name
+        else -> defaultName
+    }
 }

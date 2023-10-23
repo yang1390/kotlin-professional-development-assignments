@@ -7,5 +7,15 @@ package nl.freshminds
  * 1 to 20 without any remainder.
  */
 fun divisibleByAllNumbersFrom1to20(): Int {
-    TODO()
+    val list = (1..20).toList();
+    var i = 20
+    while (i >= 0) {
+        if(list.all {
+            i % it == 0
+        }) {
+            return i;
+        }
+        i += 20
+    }
+    return 0
 }

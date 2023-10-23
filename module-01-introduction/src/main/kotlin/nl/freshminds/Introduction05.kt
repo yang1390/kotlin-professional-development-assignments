@@ -9,5 +9,13 @@ package nl.freshminds
  * Implement [fibonacci] to return a comma separated String of the first [n] fibonacci numbers.
  */
 fun fibonacci(n: Int): String {
-   TODO()
+   if ( n <= 1) {
+      return 0.toString()
+   } else {
+      val list = (0..1).toMutableList();
+      while (list.size < n) {
+         list.add(list[list.size -2] + list[list.size -1])
+      }
+      return list.joinToString(",")
+   }
 }

@@ -16,3 +16,20 @@ package nl.freshminds
  * 4. Mark the Pizza constructor as private so all pizza creation goes through the
  * companion object's factory methods.
  */
+
+fun main() {
+    val pizzas = listOf(
+        Pizza.createPepperoniPizza(),
+        Pizza.createCheesePizza(),
+        Pizza.createVeggiePizza()
+    )
+    pizzas.forEach { pizza -> println("${pizza.name} voor ${pizza.price} toppings: ${pizza.toppings}") }
+}
+
+data class Pizza private constructor(val name: String, val size: Int, val toppings: String, val price :Double){
+    companion object Factory {
+        fun createCheesePizza(): Pizza = Pizza("cheese", 2, "kaas", 10.0 )
+        fun createPepperoniPizza(): Pizza = Pizza("salami", 3, "salami", 11.0)
+        fun createVeggiePizza(): Pizza = Pizza("sadness", 1, "niks", 99.0)
+    }
+}
